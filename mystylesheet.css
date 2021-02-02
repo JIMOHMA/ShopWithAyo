@@ -15,13 +15,21 @@
   --footerColor: #f4f5e6;
 }
 
-html {
+html,
+body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
   color: var(--mainText);
 }
 
 .my-body-wrapper {
+  min-height: 100%;
   margin: 60px;
   margin-top: 20px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   color: var(--mainText);
 }
 
@@ -72,6 +80,11 @@ a:hover {
 button {
   color: var(--buttonColor);
   cursor: pointer;
+}
+
+#s1 {
+  margin-left: 60px;
+  margin-right: 60px;
 }
 .navbar-item {
   padding: 20px;
@@ -206,7 +219,25 @@ button {
 .myfooter {
   /* background: var(--footerColor); */
   /* margin: none; */
-  background: black;
-  color: var(--mainText);
+  background: #2f2c2f;
+  color: white;
   height: 250px;
+  position: relative;
+}
+
+.myfooter .footer-bottom {
+  background: #5c5b5c;
+  color: var(--secondaryText);
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+
+.myfooter .footer-content {
+  /* border: 1px solid red; */
+  height: 210px;
 }
