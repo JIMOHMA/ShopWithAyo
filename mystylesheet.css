@@ -11,11 +11,17 @@
   --buttonColor: black;
 
   --mainFont: "Russo One", sans-serif;
+
+  --footerColor: #f4f5e6;
 }
 
-html,
-body {
-  margin: 20px;
+html {
+  color: var(--mainText);
+}
+
+.my-body-wrapper {
+  margin: 60px;
+  margin-top: 20px;
   color: var(--mainText);
 }
 
@@ -161,6 +167,9 @@ button {
   /* background-color: green; */
   /* margin-top: 60px; */
   padding-top: 60px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 150px;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -168,7 +177,7 @@ button {
 
 .shirt-items {
   width: 350px;
-  height: 500px;
+  height: 450px;
   box-shadow: -4px 0px 12px -3px rgba(0, 0, 0, 0.93);
   -webkit-box-shadow: -4px 0px 12px -3px rgba(0, 0, 0, 0.93);
   -moz-box-shadow: -4px 0px 12px -3px rgba(0, 0, 0, 0.93);
@@ -192,3 +201,12 @@ button {
 /* .Shirts:hover {
   content: url('images/shirts1.jpg')
 } */
+
+/* FOOTER */
+.myfooter {
+  /* background: var(--footerColor); */
+  /* margin: none; */
+  background: black;
+  color: var(--mainText);
+  height: 250px;
+}

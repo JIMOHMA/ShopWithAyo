@@ -1,6 +1,6 @@
-function ShirtHover {
+// function ShirtHover {
 
-}
+// }
 
 function hvr(dom, action)
 {
