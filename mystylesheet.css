@@ -15,6 +15,11 @@
   --footerColor: #f4f5e6;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   height: 100%;
@@ -23,13 +28,15 @@ body {
   color: var(--mainText);
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .my-body-wrapper {
   min-height: 100%;
-  margin: 60px;
   margin-top: 20px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 60px;
+  margin-right: 60px;
   color: var(--mainText);
 }
 
@@ -38,6 +45,7 @@ body {
   padding-top: 0;
 
   display: flex;
+  grid-template-columns: 1fr 2fr;
   justify-content: space-between;
 }
 
@@ -86,6 +94,12 @@ button {
   margin-left: 60px;
   margin-right: 60px;
 }
+
+.main-container {
+  width: 100%;
+  margin: auto;
+}
+
 .navbar-item {
   padding: 20px;
   margin: 10px;
@@ -223,6 +237,7 @@ button {
   color: white;
   height: 250px;
   position: relative;
+  width: 100%;
 }
 
 .myfooter .footer-bottom {
@@ -231,7 +246,7 @@ button {
   height: 40px;
   width: 100%;
   text-align: center;
-  position: absolute;
+  position: absolute; 
   bottom: 0px;
   left: 0px;
   padding-top: 20px;
@@ -240,4 +255,31 @@ button {
 .myfooter .footer-content {
   /* border: 1px solid red; */
   height: 210px;
+  width: 100%;
+}
+
+
+/*make a responsive page using media query*/
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 95%;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .navigation-LOGO {
+    grid-template-columns: 1fr;
+    /*grid-template-rows: 3em 30em; */ /* not needed anymore cause of auto adjust height*/
+    grid-template-areas:
+      "myLOGO"
+      "myNavbar";
+  }
+
+  .myLOGO {
+    justify-content: center;
+  }
+  .myNavbar {
+    justify-content: center;
+  }
 }

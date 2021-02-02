@@ -1,0 +1,24 @@
+/*make a responsive page using media query*/
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 95%;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .navigation-LOGO {
+    grid-template-columns: 1fr;
+    /*grid-template-rows: 3em 30em; */ /* not needed anymore cause of auto adjust height*/
+    grid-template-areas:
+      "myLOGO"
+      "myNavbar";
+  }
+
+  .myLOGO {
+    justify-content: center;
+  }
+  .myNavbar {
+    justify-content: center;
+  }
+}
