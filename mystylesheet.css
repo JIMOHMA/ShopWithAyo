@@ -28,6 +28,9 @@ body {
   color: var(--mainText);
 }
 
+/* Careful with this, might mess up veiwage later on */
+/* For now, it solves the problem of overflow to the right
+when resizing the window down. */
 body {
   overflow-x: hidden;
 }
@@ -246,7 +249,7 @@ button {
   height: 40px;
   width: 100%;
   text-align: center;
-  position: absolute; 
+  position: absolute;
   bottom: 0px;
   left: 0px;
   padding-top: 20px;
@@ -256,8 +259,8 @@ button {
   /* border: 1px solid red; */
   height: 210px;
   width: 100%;
+  position: absolute;
 }
-
 
 /*make a responsive page using media query*/
 @media screen and (max-width: 1200px) {
@@ -265,7 +268,6 @@ button {
     width: 95%;
   }
 }
-
 
 @media screen and (max-width: 800px) {
   .navigation-LOGO {
