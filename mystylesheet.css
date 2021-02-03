@@ -130,9 +130,10 @@ button {
 }
 
 .myNavbar {
+  text-align: center;
   /* float: right; */
   margin-top: 10px;
-  padding-left: 30px;
+  padding-left: 0px;
   /* background-color: yellow; */
   /* margin-left: 0; */
   /* margin-top: 15px; */
@@ -149,12 +150,6 @@ button {
   display: inline-block;
   margin: 10px;
   padding: 10px;
-}
-
-.navbar-item {
-  background-color: red;
-  padding: 20px;
-  margin: 10px;
 }
 
 .section-image-container {
@@ -231,12 +226,15 @@ button {
   padding-bottom: 150px;
   margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.shirt-items {
-  width: 350px;
-  height: 450px;
+.cloth-items {
+  margin: 20px;
+  /* width: 350px;
+  height: 450px; */
+  width: auto;
+  height: auto;
   box-shadow: -4px 0px 12px -3px rgba(0, 0, 0, 0.93);
   -webkit-box-shadow: -4px 0px 12px -3px rgba(0, 0, 0, 0.93);
   -moz-box-shadow: -4px 0px 12px -3px rgba(0, 0, 0, 0.93);
@@ -244,7 +242,7 @@ button {
   text-align: center;
 }
 
-.shirt-items img {
+.cloth-items img {
   width: 100%;
   height: 100%;
   display: block;
@@ -332,4 +330,71 @@ button {
   .myNavbar {
     grid-area: NAVIGATION;
   }
+
+  .featured-Items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "first-image second-image"
+      "third-image fourth-image";
+  }
+
+  .Shirts {
+    grid-area: first-image;
+  }
+
+  .Sweats {
+    grid-area: second-image;
+  }
+
+  .Coats {
+    grid-area: third-image;
+  }
+
+  .Jeans {
+    grid-area: fourth-image;
+  }
+}
+
+
+
+@media (max-width: 540px) {
+  /* CSS */
+  .featured-Items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "first-image" 
+      "second-image"
+      "third-image" 
+      "fourth-image";
+  }
+
+  .cloth-items {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 40px;
+  }
+
+  .Shirts {
+    grid-area: first-image;
+  }
+
+  .Sweats {
+    grid-area: second-image;
+  }
+
+  .Coats {
+    grid-area: third-image;
+  }
+
+  .Jeans {
+    grid-area: fourth-image;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* CSS */
+  
+
 }
