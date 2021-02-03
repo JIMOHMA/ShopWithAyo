@@ -152,7 +152,7 @@ button {
   padding: 10px;
 }
 
-.section-image-container {
+.image-shop-now-container {
   display: flex;
   /* width: 300px;
   height: 200px; */
@@ -163,9 +163,7 @@ button {
 }
 
 .left-column {
-  margin-top: 35px;
-  margin-left: 35px;
-  margin-bottom: 35px;
+  margin: 35px;
 }
 
 .right-column {
@@ -215,6 +213,7 @@ button {
   font-size: 30px;
   background-color: white;
   padding-top: 50px;
+  border: 10px solid #5C5A57;
 }
 
 .featured-Items {
@@ -393,8 +392,39 @@ button {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   /* CSS */
-  
+  .image-shop-now-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      'Image'
+      'OtherInformation';
+  }
 
+  .left-column {
+    grid-area: Image;
+  }
+
+  .left-column img {
+    width: 100%;
+  }
+
+  .right-column {
+    grid-area: OtherInformation;
+  }
+
+  .salesParagraph1 {
+    margin-bottom: 10px;
+  }
+
+  .salesButton {
+    margin-bottom: 10px;
+  }
+
+  .salesDetails {
+    margin-top: 20px;
+  }
+
+  
 }
