@@ -152,6 +152,12 @@ button {
   padding: 10px;
 }
 
+.myNavbar li:hover {
+  background-color: #E9E7E7;
+  border: 1px solid #5C5A57;
+  border-radius: 50%;
+}
+
 .image-shop-now-container {
   display: flex;
   /* width: 300px;
