@@ -338,7 +338,6 @@ button {
 ################################################################## */
 .product-page-container {
   margin-bottom: 60px;
-  background-color: rgb(203, 212, 230);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
@@ -347,27 +346,37 @@ button {
 }
 
 .product-page-image {
-  background-color: darkgreen;
   grid-area: IMAGE;
-  width: 60%;
-  height: 60%;
+  /* width: 60%; */
+  /* height: 60%; */
   /* margin: 50px;
   padding: 100px; */
 }
 
+.inner-Image {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .product-page-image img {
-  margin-left: auto;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  padding-right: 40px;
   margin-top: 75px;
   width: 100%;
+  position: relative;
+  /* left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 .price-addCart {
-  background-color: darkorchid;
   grid-area: PRICE-ADDCART;
 }
 
 .priceTag {
-  background-color: darksalmon;
   height: 50%;
   text-align: center;
   /* padding-top: 300px; */
@@ -377,6 +386,7 @@ button {
   justify-content: center;
   padding: 5px; */
   position: relative;
+  margin-bottom: 20px;
 }
 
 /* used to center the price tag */
@@ -395,17 +405,20 @@ button {
 
 .addCart {
   text-align: center;
-  background-color: darkviolet;
   margin: auto;
 }
 
 .addCart .page-addCart {
+  text-align: center;
+  color: #d8a059;
+  font-family: var(--mainFont);
+  text-align: center;
+  cursor: pointer;
   font-size: 25px;
 }
 
 .product-description {
   text-align: center;
-  background-color: deeppink;
   grid-area: PRODUCT-DESCRIPTION;
   font-size: 30px;
   margin-top: 30px;
@@ -448,6 +461,28 @@ button {
 
   .salesDetails {
     margin-top: 20px;
+  }
+
+  /* Change orientation of product page on resizing */
+  .product-page-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "IMAGE"
+      "PRICE-ADDCART"
+      "PRODUCT-DESCRIPTION";
+  }
+
+  .product-page-image {
+    grid-area: IMAGE;
+  }
+
+  .price-addCart {
+    grid-area: PRICE-ADDCART;
+  }
+
+  .product-description {
+    grid-area: PRODUCT-DESCRIPTION;
   }
 }
 
@@ -492,16 +527,6 @@ button {
 
   .Jeans {
     grid-area: fourth-image;
-  }
-
-  /* Change orientation of product page on resizing */
-  .product-page-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "IMAGE" 
-      "PRICE-ADDCART"
-      "PRODUCT-DESCRIPTION";
   }
 }
 
