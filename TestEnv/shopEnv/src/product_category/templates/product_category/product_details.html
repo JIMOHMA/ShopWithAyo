@@ -14,7 +14,7 @@
         <p>Price: ${{ object.price }}</p> 
       </div>
       <div class="addCart">
-        <input class="page-addCart button" type="submit" value="Add To Cart">
+        <button data-product={{object.id}} data-doAction="add" class="add-to-cart-button">Add To Cart</button>
       </div>
     </div>
     <div class="product-description">

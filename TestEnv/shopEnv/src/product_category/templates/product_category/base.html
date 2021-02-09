@@ -17,6 +17,27 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/mystylesheet.css' %}">
 
+    <script type="text/javascript">
+      var user = '{{request.user}}'
+
+      function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+      }
+      const csrftoken = getToken('csrftoken');
+    </script>
+
   </head>
   <body>
     
@@ -35,7 +56,7 @@
             <!-- <li class='mynav-item'><a href="#">News</a></li> -->
             <li class='mynav-item'><a href="#">Store</a></li>
             <!-- <li class='nav'><a href="#">Cart</a></li> -->
-            <li class='mycart'><a href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}" alt=""><p id="total-in-Cart"> 0</p></a></li>
+            <li class='mycart'><a href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}" alt=""><p id="total-in-Cart"> {{cartItems}}</p></a></li>
             
           </ul>
         </div>

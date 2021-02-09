@@ -14,7 +14,7 @@
         <p>{{ coat.name }}</p>
         <div class="price-cart">
           <span>Price: ${{ coat.price }}</span> 
-          <input class="add-to-cart-button" type="submit" value="Add To Cart">
+          <button data-product={{coat.id}} data-action="add" class="add-to-cart-button">Add To Cart</button>
         </div>
       </div>
     {% endfor %}
