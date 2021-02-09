@@ -5,14 +5,15 @@
 {% block content %}
   <div class="product-category"> <p>Jeans</p></div>
   <div class="products-wrapper">
-    {% for product in object %}
+    {% for jean in object %}
       <div class="product-container">
         <div class="Product-Image">
-          <img src="{{product.image.url}}" alt="">
+          <!-- <img src="{{jeans.image.url}}" alt=""> -->
+          <a href="{{ jean.get_absolute_url }}"><img src="{{jean.imageURL}}" alt=""></a>
         </div>
-        <p>{{ product.name }}</p>
+        <p>{{ jean.name }}</p>
         <div class="price-cart">
-          <span>Price: ${{ product.price }}</span> 
+          <span>Price: ${{ jean.price }}</span> 
           <input class="add-to-cart-button" type="submit" value="Add To Cart">
         </div>
       </div>

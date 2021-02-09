@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>ShopWith Ayo</title>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -18,30 +19,33 @@
 
   </head>
   <body>
+    
+    <!-- LOGO AND NAVIGATION BAR ENDS HERE -->
     <div class='my-body-wrapper'>
       <!-- THIS IS MY LOGO AND NAVIGATION BAR -->
-      <section id=s1>
-        <div class="main-container">
-          <div class=navigation-LOGO>
-            <div class=myLOGO>
-              <a href="{% url 'home' %}"><img id='imageID 'src="{% static 'images/LOGO.JPG' %}" alt=""></a>
-            </div>
-
-            <ul class='myNavbar'>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Catalogue</a></li>
-              <li><a href="#">Cart</a></li>
-            </ul>
+    <section id=s1>
+      <div class='main-container'>
+        <div class=navigation-LOGO>
+          <div class=myLOGO>
+            <a href="{% url 'home' %}"><img id='imageID 'src="{% static 'images/LOGO.JPG' %}" alt=""></a>
           </div>
-        </div>
-      </section>
-      <!-- LOGO AND NAVIGATION BAR ENDS HERE -->
 
-      <!-- Further Content goes in here -->
-      {% block content %}
-        <h3>BASE PAGE TEMPLATE</h3>
-      {% endblock content %}
+          <ul class='myNavbar'>
+            <li class='mynav-item'><a href="#">Login</a></li>
+            <!-- <li class='mynav-item'><a href="#">News</a></li> -->
+            <li class='mynav-item'><a href="#">Store</a></li>
+            <!-- <li class='nav'><a href="#">Cart</a></li> -->
+            <li class='mycart'><a href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}" alt=""><p id="total-in-Cart"> 0</p></a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Further Content goes in here -->
+    {% block content %}
+      <h3>BASE PAGE TEMPLATE</h3>
+    {% endblock content %}
       
     </div>
     <!-- Footer -->
@@ -89,7 +93,7 @@
                 </div>
               <div class="msg">
                 <div class="text">Message *</div>
-                <textarea  cols="30" rows="4"></textarea>
+                <textarea style="resize: none;" cols="30" rows="4"></textarea>
               </div>
               <div class="btn">
                 <button type="submit">Send</button>
@@ -109,6 +113,6 @@
       </div>
     </div>
     <!-- Footer -->
-    <script type="text/javascript" src="myscript.js"></script>
+    <script type="text/javascript" src="{% static 'js/myscript.js' %}"></script>
   </body>
 </html>

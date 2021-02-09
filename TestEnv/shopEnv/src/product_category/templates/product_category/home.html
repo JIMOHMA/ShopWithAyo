@@ -3,7 +3,7 @@
 
 {% block content %}
   <section id=s2>
-    <div class="main-container">
+    <div class="mymain-container">
       <div class='image-shop-now-container'>
         <div class='left-column'>
           <img src="{% static 'images/clothing2.jpg' %}" alt="">
@@ -25,7 +25,7 @@
   </section>
 
   <section id=s3>
-    <div class="main-container">
+    <div class="mymain-container">
       <div class='featured-Items'>
         <div class='cloth-items Shirts'>
           <img class='Shirts' src="{% static 'images/shirts2.jpg' %}" alt=""><br><a class='items-link' href="{% url 'shirts' %}">Shirts</a>
@@ -34,18 +34,18 @@
         <!-- <div class='shirt-items' onmouseover="hvr(this, 'in')" onmouseout="hvr(this, 'out')">
           <img class='Shirts' col='g' src="images/shirts1.jpg" alt="">
           <img class='Shirts' col='b' src="images/shirts1.jpg" alt="" style="display: none;"><br>
-          <a class='items-link' href="">Shirts</a>
+          <a class='myitems-link' href="">Shirts</a>
 
         </div> -->
         <div class='cloth-items Sweats'>
           <img class='Sweats' src="{% static 'images/sweats.jpg' %}" alt="">
           <br>
-          <a class='items-link' href="">Sweats</a>
+          <a class='items-link' href="{% url 'sweats' %}">Sweats</a>
         </div>
         <div class='cloth-items Coats'>
           <img class='Coats' src="{% static 'images/coats.jpg' %}" alt="">
           <br>
-          <a class='items-link' href="">Coats</a>
+          <a class='items-link' href="{% url 'coats' %}">Coats</a>
         </div>
         <div class='cloth-items Jeans'>
           <img class='Jeans' src="{% static 'images/jeans1HOME.jpg' %}" alt="">

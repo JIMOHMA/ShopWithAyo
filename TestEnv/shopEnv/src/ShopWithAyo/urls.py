@@ -25,10 +25,22 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('base/', views.basePage, name='base'),
     path('', views.homePage, name='home'),
+
+
     path('jeans/', views.jeansPage, name='jeans'),
     path('shirts/', views.shirtsPage, name='shirts'),
     path('coats/', views.coatsPage, name='coats'),
     path('sweats/', views.sweatsPage, name='sweats'),
+
+
+    path('jeans/details/<int:id>/', views.product_details, name='jeans'),
+    path('shirts/details/<int:id>/', views.product_details, name='shirts'),
+    path('coats/details/<int:id>/', views.product_details, name='coats'),
+    path('sweats/details/<int:id>/', views.product_details, name='details'),
+
+
+    path('cart/', views.cartPage, name='cart'),
+    path('checkout/', views.checkoutPage, name='checkout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
