@@ -62,3 +62,4 @@ function updateUserOrder(productID, action){
         location.reload() // to reload our page automatically everytime items gets added to our cart.
     })
 }
+

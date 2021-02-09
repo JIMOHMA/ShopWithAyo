@@ -25,7 +25,7 @@ class Product(models.Model):
     )
 
   def __str__(self):
-    return self.name
+    return str(self.name)
 
   #@property decorator allows us to access the url as a attribute instead of a method
   @property
@@ -46,7 +46,7 @@ class Customer(models.Model):
   email = models.CharField(max_length=200, null=True)
 
   def __str__(self):
-    return self.name
+    return str(self.name)
 
 
 
@@ -70,11 +70,14 @@ class Order(models.Model):
 
   @property
   def shipping(Self):
-    shipping = False
-    orderitems = self.order_item_set.all()
-    for i in orderitems:
-      if i.product.digital == False:
-        shipping = True
+    # This is for digital prodicts
+    # shipping = False
+    # orderitems = self.order_item_set.all()
+    # for i in orderitems:
+    #   if i.product.digital == False:
+    #     shipping = True
+
+    shipping = True
     return shipping
 
   # @property
@@ -128,4 +131,4 @@ class ShippingAddress(models.Model):
   date_added = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
-    return self.address
+    return str(self.address)

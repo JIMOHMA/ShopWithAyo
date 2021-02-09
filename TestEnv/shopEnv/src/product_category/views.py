@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
+import datetime
 
 # from .models import Product
 # import all model(s)
@@ -21,7 +22,7 @@ def homePage(request):
 
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'cartItems': cartItems}
@@ -39,7 +40,7 @@ def jeansPage(request):
     cartItems = order.get_cart_items
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0,  'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'object': obj, 'items': items, 'order': order, 'cartItems': cartItems}
@@ -56,7 +57,7 @@ def shirtsPage(request):
     cartItems = order.get_cart_items
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'object': obj, 'items': items, 'order': order, 'cartItems': cartItems}
@@ -74,7 +75,7 @@ def sweatsPage(request):
     cartItems = order.get_cart_items
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'object_list': queryset, 'items': items, 'order': order, 'cartItems': cartItems}
@@ -92,7 +93,7 @@ def coatsPage(request):
     cartItems = order.get_cart_items
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'object': obj, 'items': items, 'order': order, 'cartItems': cartItems}
@@ -110,7 +111,7 @@ def product_details(request, id):
     cartItems = order.get_cart_items
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'object': obj, 'cartItems': cartItems}
@@ -126,7 +127,7 @@ def cartPage(request):
 
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_items':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
     cartItems = order['get_cart_items']
 
   context = {'items': items, 'order': order, 'cartItems': cartItems}
@@ -142,7 +143,8 @@ def checkoutPage(request):
 
   else:
     items = [] 
-    order = {'get_cart_total': 0, 'get_cart_item':0}
+    order = {'get_cart_total': 0, 'get_cart_items':0, 'shipping':False}
+    cartItems = order['get_cart_items']
 
   context = {'items': items, 'order': order, 'cartItems': cartItems}
   return render(request, 'product_category/checkout.html', context)
@@ -182,3 +184,35 @@ def updateItem(request):
   if orderItem.quantity <= 0:
     orderItem.delete()
   return JsonResponse('Item was added', safe=False)
+
+def processOrder(request):
+  print('Data:', request.body)
+  transaction_id = datetime.datetime.now().timestamp()
+  data = json.loads(request.body)
+
+  if request.user.is_authenticated:
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    total = float(data['form']['total'])
+    order.transaction_id = transaction_id
+
+    # verifying if the front end total is the same as value on the backend
+    # to prevent theft 
+    if total == order.get_cart_total:
+      order.complete = True
+    
+    order.save()
+
+    if order.shipping == True:
+      ShippingAddress.objects.create(
+        customer=customer,
+        order=order,
+        address=data['shipping']['address'],
+        city=data['shipping']['city'],
+        state=data['shipping']['state'],
+        zipcode=data['shipping']['zipcode'],
+      )
+
+  else:
+    print('User is not logged in...')
+  return JsonResponse('Payment completed', safe=False)
