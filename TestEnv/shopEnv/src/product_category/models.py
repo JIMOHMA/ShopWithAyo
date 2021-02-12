@@ -14,7 +14,7 @@ class Product(models.Model):
   )
 
   name = models.CharField(max_length=200)
-  price = models.FloatField()
+  price = models.DecimalField(max_digits=9, decimal_places=2)
   image = models.ImageField(null=True, blank=True)
   category = models.CharField(
     max_length=200,
@@ -108,7 +108,7 @@ class OrderItem(models.Model):
   product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
   order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
   quantity = models.IntegerField(default=0, null=True, blank=True)
-  date_added = models.DateTimeField(auto_now_add=True)
+  date_added = models.DateTimeField(auto_now_add=True) #automaticatically creates a date when an instance of this model is created
 
   # @property
 	# def get_total(self):
@@ -128,7 +128,7 @@ class ShippingAddress(models.Model):
   city = models.CharField(max_length=200, null=False)
   state = models.CharField(max_length=200, null=False)
   zipcode = models.CharField(max_length=200, null=False)
-  date_added = models.DateTimeField(auto_now_add=True)
+  date_added = models.DateTimeField(auto_now_add=True) #automaticatically creates a date when an instance of this model is created
 
   def __str__(self):
     return str(self.address)
